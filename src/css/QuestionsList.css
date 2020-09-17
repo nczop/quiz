@@ -1,0 +1,17 @@
+.questionsList {
+  border: solid 1px red;
+  height: 210px;
+  width: 350px;
+}
+
+.question {
+  border: solid 1px blue;
+  height: 40px;
+  width: 99%;
+}
+
+.answer {
+  border: solid 1px green;
+  height: 40px;
+  width: 100%;
+}
