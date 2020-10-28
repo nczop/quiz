@@ -1,36 +1,22 @@
 import React from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import "./css/mainView.css";
 
-export default function MainView(props) {
-  const handleButton = () => {
-    props.handleButton();
-  };
-
-  const handleButtonLetsPlay = () => {
-    props.handleButtonLetsPlay();
-  };
+export default function MainView() {
   return (
-    <>
-      <button className="drawQuestion" onClick={handleButton}>
-        Lista pytań
-      </button>
-      <button className="drawQuestion" onClick={handleButtonLetsPlay}>
-        Zagrajmy
-      </button>
-    </>
+    <div className="mainView">
+      <Link to="/questionsList">
+        <div className="drawQuestion">Lista pytań</div>
+      </Link>
+      <Link to="/quiz">
+        <div className="drawQuestion">Zagrajmy</div>
+      </Link>
+      <Link to="/editingQuestion">
+        <div className="drawQuestion">Edytuj pytania</div>
+      </Link>
+      <Link to="/addingQuestion">
+        <div className="drawQuestion">Dodaj pytanie</div>
+      </Link>
+    </div>
   );
 }
-
-// export default function MainView() {
-//   return (
-//     <>
-//       <button className="drawQuestion" onClick={() => alert("policja")}>
-//         Lista pytań
-//       </button>
-//       <button className="drawQuestion" onClick={() => alert("policja")}>
-//         Zagrajmy
-//       </button>
-//     </>
-//   );
-// }
-
-// export default MainView;
