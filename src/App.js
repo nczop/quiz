@@ -7,32 +7,14 @@ import QuestionView from "./QuestionView";
 import { Router, Route } from "react-router-dom";
 import Score from "./Score";
 import NewQuestion from "./NewQuestion";
-import Edit from "./Edit";
 import history from "./utils/history";
+import ItemsList from "./ItemsList";
+import EditPage from"./EditPage";
+
 class App extends React.Component {
   state = {
     score: 0,
     items: [],
-  };
-
-  componentDidMount() {
-    axios
-      .get("https://dgbpcn9nz4.execute-api.us-east-1.amazonaws.com/question")
-      .then((res) => this.setState({ items: res.data }));
-  }
-
-  itemsList = () => {
-    return (
-      <div>
-        {this.state.items.map((item) => (
-          <Question
-            question={item}
-            computeAnswer={this.computeAnswer}
-          ></Question>
-        ))}
-        <Score score={this.state.score} />
-      </div>
-    );
   };
 
   questionOneByOne = () => {
@@ -69,9 +51,9 @@ class App extends React.Component {
     return (
       <Router history={history}>
         <Route exact path="/" component={MainView} />
-        <Route path="/questionsList" component={() => this.itemsList()} />
+        <Route path="/questionsList" component={ItemsList}/>
         <Route path="/quiz" component={() => this.questionOneByOne()} />
-        <Route path="/editingQuestion" component={Edit} />
+        <Route path="/editingQuestion" component={EditPage} />
         <Route
           path="/addingQuestion"
           component={() => <NewQuestion addQuestion={this.addQuestion} />}
